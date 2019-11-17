@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Prolific author List{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Author</th>
+                <th>Book count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author }}</td>
+                    <td>{{ author.book_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

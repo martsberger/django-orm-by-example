@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load app_tags %}
+{% block title %}Author Genre Counts{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Author name</th>
+                <th>Five star count</th>
+                <th>Four star count</th>
+                <th>Three star count</th>
+                <th>Two star count</th>
+                <th>One star count</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.first_name }} {{ author.last_name }}</td>
+                    <td>{{ author.five_star_ratings }}</td>
+                    <td>{{ author.four_star_ratings }}</td>
+                    <td>{{ author.three_star_ratings }}</td>
+                    <td>{{ author.two_star_ratings }}</td>
+                    <td>{{ author.one_star_ratings }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

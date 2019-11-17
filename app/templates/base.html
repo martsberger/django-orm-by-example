@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+            text-align: left;
+            padding: 5px;
+            border-collapse: collapse;
+            background: #F0F8FF;
+        }
+        th {
+            background: #f8f8f8;
+        }
+        body {
+            padding: 20px;
+        }
+
+        body {
+            margin: 20px;
+        }
+    </style>
+    {% block style %}
+    {% endblock %}
+</head>
+
+<body>
+    <div style="white-space: nowrap">
+        <div style="display:inline-block; vertical-align:top;">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div style="display:inline-block; vertical-align:top; margin-left:10px;">
+            {{ function_body|safe }}
+        </div>
+    </div>
+
+</body>
+
+</html>

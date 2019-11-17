@@ -1,0 +1,122 @@
+<html lang="en">
+
+<head>
+    <title>Django ORM Query Examples</title>
+    <style>
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 25px;
+            padding: 15px;
+            background-color: #f0f8ff;
+        }
+        th {
+            background-color: #f8f8f8;
+        }
+        body {
+            padding: 15px;
+        }
+        .bug, .bug>td {
+            background-color: #ee9999;
+        }
+        .nobug, .nobug>td, .fast, .fast>td {
+            background-color: #99ee99;
+        }
+        .slow, .slow>td, .ugly, .ugly>td {
+            background-color: #ffff99;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Orm Query Examples</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Page name</th>
+                <th>Feature demonstrated</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="{% url 'author_list' %}">Author list</a></td>
+                <td>Simple query</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'prolific_author_list' %}">Prolific author list</a></td>
+                <td>Order by aggregation</td>
+                <td></td>
+            </tr>
+            <tr class="bug">
+                <td><a href="{% url 'prolific_author_collaborators_list_bug_v1' %}">Prolific author collabortors list, bug 1</a></td>
+                <td>Bug from multiple aggregations</td>
+                <td></td>
+            </tr>
+            <tr class="bug">
+                <td><a href="{% url 'prolific_author_collaborators_list_bug_v2' %}">Prolific author collabortors list, bug 2</a></td>
+                <td>Bug from missing conditional in aggregation</td>
+                <td></td>
+            </tr>
+            <tr class="nobug">
+                <td><a href="{% url 'prolific_author_collaborators_list' %}">Prolific author collabortors list</a></td>
+                <td>Conditional aggregations</td>
+                <td></td>
+            </tr>
+            <tr class="slow">
+                <td><a href="{% url 'book_list_slow' %}">Book list slow</a></td>
+                <td>N + 1 queries</td>
+                <td></td>
+            </tr>
+            <tr class="fast">
+                <td><a href="{% url 'book_list' %}">Book list</a></td>
+                <td>prefetch_related</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'popular_books' %}">Popular books</a></td>
+                <td>Aggregation on many to many</td>
+                <td></td>
+            </tr>
+            <tr class="slow">
+                <td><a href="{% url 'popular_books_with_author_count' %}">Popular books, author count</a></td>
+                <td>Standard aggregation on multiple tables</td>
+                <td></td>
+            </tr>
+            <tr class="ugly">
+                <td><a href="{% url 'popular_books_with_author_count_subquery' %}">Popular books, author count, subquery</a></td>
+                <td>Built in subquery</td>
+                <td></td>
+            </tr>
+            <tr class="fast">
+                <td><a href="{% url 'popular_books_with_author_count_easy_subquery' %}">Popular books, author count, easy subquery</a></td>
+                <td>Better Subquery API</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'author_genre_counts' %}">Authors with genre counts</a></td>
+                <td>Pivot table</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'author_rating_counts' %}">Authors with rating counts</a></td>
+                <td>Hand rolled Pivot table</td>
+                <td></td>
+            </tr>
+            <tr class="ugly">
+                <td><a href="{% url 'authors_with_no_books_django_exists' %}">Authors with no books</a></td>
+                <td>Django way of doing exists</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><a href="{% url 'authors_with_no_books' %}">Authors with no books</a></td>
+                <td>Easy way of doing Exists</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

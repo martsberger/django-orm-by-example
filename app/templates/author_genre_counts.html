@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load app_tags %}
+{% block title %}Author Genre Counts{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Author name</th>
+                {% for genre in genre_names %}
+                    <th>{{ genre }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.first_name }} {{ author.last_name }}</td>
+                    {% for genre in genre_names %}
+                        <td>{{ author|get_dictionary_item:genre }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

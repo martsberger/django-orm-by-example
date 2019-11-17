@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Popular Books{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr><th>Title</th><th>Rating</th><th>Count</th></tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book }}</td>
+                    <td>{{ book.rating|floatformat:2 }}</td>
+                    <td>{{ book.rating_count }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
