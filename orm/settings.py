@@ -7,7 +7,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def _initialize_env():
-    env_file = os.join(BASE_DIR, '.env')
+    env_file = os.path.join(BASE_DIR, '.env')
     command = ['env', '-i', 'bash', '-c', f'source {env_file} && env']
     proc = subprocess.Popen(command, stdout=subprocess.PIPE)
     for line in proc.stdout:
