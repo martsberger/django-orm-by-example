@@ -1,5 +1,5 @@
 django>=1.11
-django-debug-toolbar==1.11
+django-debug-toolbar==1.11.1
 django-pivot==1.8.0
 django-sql-utils==0.4.2
 Pygments==2.3.1
